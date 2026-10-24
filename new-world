@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+src="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+dst="${1:?usage: new-world <destination> [timeline-name] [year]}"
+name="${2:-$(basename "$dst")}"
+year="${3:-1}"
+
+if [[ -e "$dst" ]]; then
+  echo "refusing to overwrite: $dst" >&2
+  exit 1
+fi
+
+cp -a "$src" "$dst"
+rm -f "$dst/.obsidian/workspace.json"
+
+python3 - "$dst" "$name" "$year" <<'PY'
+import json, pathlib, sys
+dst, name, year = pathlib.Path(sys.argv[1]), sys.argv[2], int(sys.argv[3])
+p = dst / ".obsidian/plugins/worldbuilding/data.json"
+d = json.loads(p.read_text())
+d["timelineName"] = name
+d["currentYear"] = year
+d.pop("canvasRecord", None)
+p.write_text(json.dumps(d, indent=2) + "\n")
+PY
+
+echo "created: $dst"
+echo "open it in Obsidian, then set the era name and categories in Settings → Worldbuilding."

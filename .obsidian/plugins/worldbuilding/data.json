@@ -1,0 +1,50 @@
+{
+  "charactersFolder": "Characters",
+  "eventsFolder": "Events",
+  "manuscriptFolder": "Manuscript",
+  "citiesFolder": "Places",
+  "timelineName": "World Timeline",
+  "eraName": "Common Era",
+  "eraAbbr": "CE",
+  "months": [
+    "Month 1",
+    "Month 2",
+    "Month 3",
+    "Month 4",
+    "Month 5",
+    "Month 6",
+    "Month 7",
+    "Month 8",
+    "Month 9",
+    "Month 10",
+    "Month 11",
+    "Month 12"
+  ],
+  "currentYear": 1,
+  "categories": [
+    { "key": "conflict", "label": "Conflict", "color": "red" },
+    { "key": "politics", "label": "Politics", "color": "purple" },
+    { "key": "crisis", "label": "Crisis", "color": "orange" },
+    { "key": "discovery", "label": "Discovery", "color": "cyan" },
+    { "key": "personal", "label": "Personal", "color": "yellow" }
+  ],
+  "cityFields": [
+    { "key": "region", "label": "Region" },
+    { "key": "ruled-by", "label": "Ruled by" },
+    { "key": "population", "label": "Population" },
+    { "key": "government", "label": "Government" },
+    { "key": "ruler", "label": "Ruler" },
+    { "key": "factions", "label": "Factions" },
+    { "key": "languages", "label": "Languages" },
+    { "key": "religion", "label": "Religion" },
+    { "key": "exports", "label": "Exports" },
+    { "key": "climate", "label": "Climate" }
+  ],
+  "cityTables": [
+    { "key": "districts", "title": "Districts", "columns": "name, character, notes" },
+    { "key": "landmarks", "title": "Landmarks", "columns": "name, kind, notes" }
+  ],
+  "defaultLayout": "full",
+  "openSheetByDefault": true,
+  "canvasReverseSync": false
+}
